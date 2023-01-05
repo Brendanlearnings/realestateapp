@@ -15,6 +15,16 @@ if st.button('Submit'):
     if loan_amount > 1000000:
         st.success('Loan approved!')
         st.markdown('Our attorneys will now start mocking up the documents for the transferal process.')
+
+        # Create a sidebar with a "Next" button to go to the next page
+        next_page = st.sidebar.button('Next')
+        if next_page:
+            # Request additional personal information on the next page
+            st.title('Additional Information')
+            st.markdown('Please provide the following additional information:')
+            bank_name = st.text_input('Bank Name')
+            account_number = st.text_input('Account Number')
+            routing_number = st.text_input('Routing Number')
     else:
         st.error('Loan declined')
         st.markdown('We apologize, but your loan request has been declined.')
