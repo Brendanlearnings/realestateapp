@@ -1,13 +1,20 @@
-import streamlit as st 
-import pandas as pd 
+import streamlit as st
 
-main_title = 'Real Estate Process Manager'
+# Create a form for the applicant to apply for a loan
+st.title('Real Estate Approval Process')
+st.markdown('Please complete the form below to apply for a loan:')
 
-st.title(main_title)
+name = st.text_input('Name')
+email = st.text_input('Email')
+phone = st.text_input('Phone')
+property_address = st.text_input('Property Address')
+loan_amount = st.number_input('Loan Amount')
 
-df = pd.DataFrame({
-  'first column': [1, 2, 3, 4],
-  'second column': [10, 20, 30, 40]
-})
-
-df
+# Submit the form and check the loan approval status
+if st.button('Submit'):
+    if loan_amount > 1000000:
+        st.success('Loan approved!')
+        st.markdown('Our attorneys will now start mocking up the documents for the transferal process.')
+    else:
+        st.error('Loan declined')
+        st.markdown('We apologize, but your loan request has been declined.')
